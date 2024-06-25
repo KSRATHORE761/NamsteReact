@@ -1,26 +1,51 @@
-import React from 'react'; 
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-    React.createElement(
-        "div",
-        {id:'child'},
-        [
-            React.createElement("h1",{},"I am a h1 tag"),
-            React.createElement("h2",{},"I am a h2 tag")
-        ]
-    )
+// const heading = React.createElement("h1",{id:"heading"},"Namste react");
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+
+//Using JSX
+//const jsxHeading = <h1 id="heading">Namste React🚀</h1>
+//const root = ReactDOM.createRoot(document.getElementById("root"));
+
+//root.render(jsxHeading);
+
+//React components:
+//1. Class components
+//2. Functional component
+
+//React function component:
+const HeadingComponent = () => {
+  return (
+    <div>
+      <Title></Title>
+      <h1>This is a example of functional component</h1>
+    </div>
+  );
+};
+
+// Component composition
+
+const Title = () => <h1>Namste React🚀</h1>;
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<HeadingComponent></HeadingComponent>);
+
+// Js element in component
+
+const title = <h1>Namste React🚀</h1>;
+
+const JsElementInComponent = () => (
+  <div>
+    {title}
+    <h1>This is a example of js element in a component</h1>
+  </div>
 );
-
-const heading = React.createElement("h1",
-    {
-        id:"heading"
-    },
-    "Hello world from react!");
 const root = ReactDOM.createRoot(document.getElementById("root"));
-//root.render(heading);
-
-console.log(parent) // object;
-root.render(parent); 
+root.render(
+  <>
+    <HeadingComponent></HeadingComponent>
+    <JsElementInComponent></JsElementInComponent>
+  </>
+);
